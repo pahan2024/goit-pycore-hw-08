@@ -3,9 +3,6 @@ from collections import UserDict
 from datetime import datetime, timedelta
 
 
-# ==========================================
-# ДЕКОРАТОР ДЛЯ ОБРОБКИ ПОМИЛОК
-# ==========================================
 def input_error(func):
 
     def inner(*args, **kwargs):
@@ -21,9 +18,6 @@ def input_error(func):
     return inner
 
 
-# ==========================================
-# КЛАСИ АДРЕСНОЇ КНИГИ
-# ==========================================
 class Field:
 
     def __init__(self, value):
@@ -144,9 +138,6 @@ class AddressBook(UserDict):
         return "\n".join(str(record) for record in self.data.values())
 
 
-# ==========================================
-# ФУНКЦІЇ-ОБРОБНИКИ КОМАНД (ХЕНДЛЕРИ)
-# ==========================================
 def parse_input(user_input):
     if not user_input.strip():
         return "", []
@@ -222,9 +213,6 @@ def birthdays(args, book: AddressBook):
     return result.strip()
 
 
-# ==========================================
-# ФУНКЦІЇ СЕРІАЛІЗАЦІЇ / ДЕСЕРІАЛІЗАЦІЇ (PICKLE)
-# ==========================================
 def save_data(book, filename="addressbook.pkl"):
     """Серіалізує та зберігає об'єкт AddressBook у бінарний файл."""
     with open(filename, "wb") as f:
@@ -243,9 +231,6 @@ def load_data(filename="addressbook.pkl"):
         return AddressBook()
 
 
-# ==========================================
-# ГОЛОВНИЙ ЦИКЛ ПРОГРАМИ
-# ==========================================
 def main():
     # Крок 1: Відновлюємо стан адресної книги з попереднього сеансу
     book = load_data()
