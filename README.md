@@ -34,3 +34,25 @@
 
 - `main.py` — головний файл застосунку, що містить логіку користувацького інтерфейсу (парсер команд та основний цикл), а також функції серіалізації `save_data` та `load_data`.
 - `.gitignore` — файл конфігурації Git, який виключає локальну базу даних `addressbook.pkl` та кеш Python (`__pycache__`) з відстеження репозиторієм.
+## Приклад взаємодії з ботом
+
+```text
+Welcome to the assistant bot!
+Enter a command: hello
+How can I help you?
+Enter a command: add John 0951112233
+Contact added.
+Enter a command: add-birthday John 28.08.1995
+Birthday added for John.
+Enter a command: phone John
+John's phones: 0951112233
+Enter a command: show-birthday John
+John's birthday is 28.08.1995
+Enter a command: birthdays
+Upcoming birthdays:
+John: congratulate on 31.08.2026
+Enter a command: all
+Contact name: John, phones: 0951112233, birthday: 28.08.1995
+Enter a command: exit
+Good bye!
+```
